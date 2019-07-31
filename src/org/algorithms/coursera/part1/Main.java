@@ -1,7 +1,7 @@
 package org.algorithms.coursera.part1;
 
-import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
+
+import edu.princeton.cs.algs4.QuickUnionUF;
 
 public class Main {
 
@@ -30,7 +30,7 @@ public class Main {
 
         System.out.println(quickUnionUF.connected(1,5));
 
-        quickUnionUF.print();
+        //quickUnionUF.print();
 
 
 
@@ -40,81 +40,5 @@ public class Main {
     }
 }
 
-class UF {
-    public UF(int size) {
-    }
 
-    public void union(int a, int b) {
 
-    }
-
-    public boolean connected(int a, int b) {
-        return false;
-    }
-}
-
-class QuickFindUF {
-    private int[] ids;
-
-    public QuickFindUF(int N) {
-        ids = new int[N];
-        for (int i = 0; i < ids.length; i++) {
-            ids[i] = i;
-
-        }
-    }
-
-    public boolean connected(int p, int q) {
-        return ids[p] == ids[q];
-    }
-
-    public void union(int p, int q) {
-        int pid = ids[p];
-        int qid = ids[q];
-
-        if (pid == qid) return;
-
-        for (int i = 0; i < ids.length; i++) {
-            if (ids[i] == pid) ids[i] = qid;
-        }
-
-    }
-}
-
-class QuickUnionUF {
-    private int[] ids;
-
-    public QuickUnionUF(int N) {
-        ids = new int[N];
-        for (int i = 0; i < ids.length; i++) {
-            ids[i] = i;
-
-        }
-    }
-
-    public boolean connected(int p, int q) {
-        return findRoot(p) == findRoot(q);
-    }
-
-    public void union(int p, int q) {
-        int rootP = findRoot(p);
-        int rootQ = findRoot(q);
-        ids[rootP] = rootQ;
-    }
-
-    private int findRoot(int p) {
-        int id = ids[p];
-        if (id != p) {
-            id = findRoot(id);
-        }
-        return id;
-    }
-
-    public void print() {
-        for (int i = 0; i < ids.length; i++) {
-            System.out.println( i + " " + ids[i]);
-
-        }
-
-    }
-}
