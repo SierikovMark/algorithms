@@ -1,8 +1,5 @@
 package org.algorithms.coursera.part1.week2;
 
-import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
-
 public class StackTestClient {
 
     public static void main(String[] args) {
@@ -36,6 +33,24 @@ public class StackTestClient {
         System.out.println(stack.isEmpty());
         System.out.println(stack.pop());
         System.out.println(stack.isEmpty());
+
+//        StackGeneric<String> stackGeneric = new StackGenericBasedOnArray<>();
+        StackGeneric<String> stackGeneric = new StackGenericBasedOnLinkedList<>();
+        stackGeneric.push("1");
+        stackGeneric.push("2");
+        stackGeneric.push("3");
+
+
+        System.out.println("---------------------------");
+        for (String s : stackGeneric) {
+            System.out.println(s);
+        }
+        System.out.println("---------------------------");
+
+        System.out.println(stackGeneric.peek());
+        System.out.println(stackGeneric.pop());
+        System.out.println(stackGeneric.peek());
+
 
     }
 }

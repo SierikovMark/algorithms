@@ -1,5 +1,7 @@
 package org.algorithms.coursera.part1.week2;
 
+import java.util.Iterator;
+
 public class StackGenericBasedOnLinkedList<T> implements StackGeneric<T> {
 
     private Node first;
@@ -42,8 +44,30 @@ public class StackGenericBasedOnLinkedList<T> implements StackGeneric<T> {
         return size;
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return new ItemIterator();
+    }
+
     private class Node {
         T item;
         Node next;
+    }
+
+    private class ItemIterator implements Iterator<T> {
+
+        private Node node = first;
+
+        @Override
+        public boolean hasNext() {
+            return node != null;
+        }
+
+        @Override
+        public T next() {
+            T item = node.item;
+            node = node.next;
+            return item;
+        }
     }
 }
