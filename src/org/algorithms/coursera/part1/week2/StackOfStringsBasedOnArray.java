@@ -29,6 +29,9 @@ public class StackOfStringsBasedOnArray implements StackOfStrings {
         String item = stack[currentIndex];
         stack[currentIndex] = null;
         currentIndex--;
+        if (currentIndex > DEFAULT_STACK_SIZE && currentIndex <= stack.length / 4) {
+            stack = Arrays.copyOf(stack, stack.length / SIZE_MULTIPLIER);
+        }
         return item;
     }
 
