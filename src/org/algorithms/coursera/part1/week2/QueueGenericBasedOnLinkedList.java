@@ -1,5 +1,7 @@
 package org.algorithms.coursera.part1.week2;
 
+import java.util.Iterator;
+
 public class QueueGenericBasedOnLinkedList<T> implements QueueGeneric<T> {
 
     private Node lastNode;
@@ -7,6 +9,11 @@ public class QueueGenericBasedOnLinkedList<T> implements QueueGeneric<T> {
     private int size;
 
     public QueueGenericBasedOnLinkedList() {}
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ItemIterator();
+    }
 
     private class Node {
         T item;
@@ -47,5 +54,22 @@ public class QueueGenericBasedOnLinkedList<T> implements QueueGeneric<T> {
     @Override
     public int size() {
         return size;
+    }
+
+    private class ItemIterator implements Iterator<T> {
+
+        private Node s = firstNode;
+
+        @Override
+        public boolean hasNext() {
+            return s != null;
+        }
+
+        @Override
+        public T next() {
+            T item = s.item;
+            s = s.prev;
+            return item;
+        }
     }
 }

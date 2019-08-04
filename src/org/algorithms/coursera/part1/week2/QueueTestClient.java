@@ -32,5 +32,22 @@ public class QueueTestClient {
         System.out.println(queue.isEmpty());
         System.out.println(queue.dequeue());
 
+
+//        QueueGeneric<String> queueGeneric = new QueueGenericBasedOnArray<>();
+        QueueGeneric<String> queueGeneric = new QueueGenericBasedOnLinkedList<>();
+        queueGeneric.endueue("1");
+        queueGeneric.endueue("2");
+        queueGeneric.endueue("3");
+
+
+        System.out.println("---------------------------");
+        for (String s : queueGeneric) {
+            System.out.println(s);
+        }
+        System.out.println("---------------------------");
+
+        System.out.println(queueGeneric.dequeue());
+        System.out.println(queueGeneric.dequeue());
+
     }
 }

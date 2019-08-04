@@ -1,10 +1,11 @@
 package org.algorithms.coursera.part1.week2;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class QueueGenericBasedOnArray<T> implements QueueGeneric<T> {
 
-    private final static int INITIAL_SIZE = 2;
+    private final static int INITIAL_SIZE = 8;
     private final static int SIZE_MULTIPLIER = 2;
 
     private T[] queue;
@@ -50,5 +51,26 @@ public class QueueGenericBasedOnArray<T> implements QueueGeneric<T> {
     @Override
     public int size() {
         return capacity;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ItemIterator();
+    }
+
+    private class ItemIterator implements Iterator<T> {
+
+        private int h = head, t = tail;
+        private T[] q = queue;
+
+        @Override
+        public boolean hasNext() {
+            return h < t;
+        }
+
+        @Override
+        public T next() {
+            return q[h++];
+        }
     }
 }

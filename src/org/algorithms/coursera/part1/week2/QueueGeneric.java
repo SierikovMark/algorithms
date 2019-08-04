@@ -1,6 +1,6 @@
 package org.algorithms.coursera.part1.week2;
 
-public interface QueueGeneric<T> {
+public interface QueueGeneric<T> extends Iterable<T> {
 
     void  endueue(T item);
 
