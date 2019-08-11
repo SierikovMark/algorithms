@@ -13,8 +13,9 @@ public class Shellsort {
 
             for (int i = 1; i < a.length; i++) {
                 int j = i;
-                while (less(a[j], a[j - h])) {
+                while (j> 0 && less(a[j], a[j - h])) {
                     exch(a, j, j - h);
+                    j--;
                 }
             }
             h = h / 3;

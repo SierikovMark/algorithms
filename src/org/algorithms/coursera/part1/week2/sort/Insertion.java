@@ -6,7 +6,7 @@ public class Insertion {
 
         for (int i = 1; i < ar.length; i++) {
             int j = i;
-            while(less(ar[j], ar[j - 1])) {
+            while(j > 0 && less(ar[j], ar[j - 1])) {
                 exch(ar, j, j - 1);
                 j--;
             }
