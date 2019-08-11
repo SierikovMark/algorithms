@@ -4,6 +4,36 @@ import org.algorithms.coursera.part1.week2.sort.Shellsort;
 
 public class Mergesort {
 
+    public static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
+        assert isSorted(a, lo, mid);
+        assert isSorted(a, mid + 1, hi);
+
+        for (int i = 0; i < a.length; i++) {
+            aux[i] = a[i];
+        }
+
+        int i = lo, j = mid + 1;
+
+        for (int k = lo; k < hi; k++) {
+            if (i > mid) a[k] = aux[j++];
+            else if (j > hi) a[k] = aux[i++];
+            else if (less(aux[j], aux[i])) a[k] = aux[j++];
+            else a[k] = aux[i++];
+        }
+    }
+
+    private static boolean isSorted(Comparable[] a, int lo, int hi) {
+        if (a.length < 2) return true;
+
+        Comparable last = a[1];
+        for (int i = lo + 1; i < hi; i++) {
+            if (a[i].compareTo(last) < 0) return false;
+
+            last = a[i];
+        }
+        return true;
+    }
+
     public static void sort(Comparable[] array) {
 
         Comparable[] tempArray1 = new Comparable[array.length / 2];
