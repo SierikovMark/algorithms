@@ -4,17 +4,30 @@ import org.algorithms.coursera.part1.week2.sort.Shellsort;
 
 public class Mergesort {
 
+    public static void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
+        if (hi <= lo) return;
+        int mid = lo + (hi - lo) / 2;
+        sort(aux, a, lo, mid);
+        sort(aux, a, mid + 1, hi);
+        if (less(aux[mid], aux[mid + 1])) return;
+        merge(a, aux, lo, mid, hi);
+    }
+
+    public static void sortCoursera(Comparable[] a) {
+        Comparable[] auxiliary = new Comparable[a.length];
+        for (int i = 0; i < a.length; i++) {
+            auxiliary[i] = a[i];
+        }
+        sort(a, auxiliary, 0, a.length - 1);
+    }
+
     public static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
         assert isSorted(a, lo, mid);
         assert isSorted(a, mid + 1, hi);
 
-        for (int i = 0; i < a.length; i++) {
-            aux[i] = a[i];
-        }
-
         int i = lo, j = mid + 1;
 
-        for (int k = lo; k < hi; k++) {
+        for (int k = lo; k <= hi; k++) {
             if (i > mid) a[k] = aux[j++];
             else if (j > hi) a[k] = aux[i++];
             else if (less(aux[j], aux[i])) a[k] = aux[j++];
@@ -101,7 +114,7 @@ public class Mergesort {
 
     public static void main(String[] args) {
         Integer[] ar = {7,3,2,5,7,8,9,1,3,7};
-        sort(ar);
+        sortCoursera(ar);
 
         for (Integer integer : ar) {
             System.out.println(integer);
