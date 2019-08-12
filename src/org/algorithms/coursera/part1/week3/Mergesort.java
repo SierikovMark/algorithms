@@ -21,7 +21,7 @@ public class Mergesort {
         sort(a, auxiliary, 0, a.length - 1);
     }
 
-    public static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
+    private static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
         assert isSorted(a, lo, mid);
         assert isSorted(a, mid + 1, hi);
 
@@ -101,16 +101,9 @@ public class Mergesort {
         }
     }
 
-    public static boolean less(Comparable a, Comparable b) {
+    private static boolean less(Comparable a, Comparable b) {
         return a.compareTo(b) < 0;
     }
-
-    public static void exch(Comparable[] a, int position, int minPosition) {
-        Comparable temp = a[position];
-        a[position] = a[minPosition];
-        a[minPosition] = temp;
-    }
-
 
     public static void main(String[] args) {
         Integer[] ar = {7,3,2,5,7,8,9,1,3,7};
