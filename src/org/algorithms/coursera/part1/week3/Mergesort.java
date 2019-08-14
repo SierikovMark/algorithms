@@ -38,11 +38,8 @@ public class Mergesort {
     private static boolean isSorted(Comparable[] a, int lo, int hi) {
         if (a.length < 2) return true;
 
-        Comparable last = a[1];
-        for (int i = lo + 1; i < hi; i++) {
-            if (a[i].compareTo(last) < 0) return false;
-
-            last = a[i];
+         for (int i = lo + 1; i < hi; i++) {
+            if (a[i].compareTo(a[i - 1]) < 0) return false;
         }
         return true;
     }
@@ -101,13 +98,35 @@ public class Mergesort {
         }
     }
 
+
+
+    public static void sortBottomUp(Comparable[] a) {
+        Comparable[] auxiliary = new Comparable[a.length];
+        for (int i = 0; i < a.length; i++) {
+            auxiliary[i] = a[i];
+
+        }
+        sortBottomUp(a, auxiliary);
+    }
+
+    private static void sortBottomUp(Comparable[] a, Comparable[] aux) {
+        for (int sz = 1; sz < a.length; sz += sz) {
+            for (int lo = 0; lo < a.length - sz; lo += sz + sz) {
+                merge(a, aux, lo, lo + sz - 1, Math.min(lo + sz + sz - 1, a.length - 1));
+
+            }
+            System.arraycopy(a, 0, aux, 0, a.length);
+        }
+    }
+
+
     private static boolean less(Comparable a, Comparable b) {
         return a.compareTo(b) < 0;
     }
 
     public static void main(String[] args) {
         Integer[] ar = {7,3,2,5,7,8,9,1,3,7};
-        sortCoursera(ar);
+        sortBottomUp(ar);
 
         for (Integer integer : ar) {
             System.out.println(integer);
