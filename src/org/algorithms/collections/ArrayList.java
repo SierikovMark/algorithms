@@ -61,6 +61,16 @@ public class ArrayList<T> implements List<T> {
     }
 
     @Override
+    public T lastNode() {
+        return list[size];
+    }
+
+    @Override
+    public T firstNode() {
+        return list[0];
+    }
+
+    @Override
     public int size() {
         return size;
     }

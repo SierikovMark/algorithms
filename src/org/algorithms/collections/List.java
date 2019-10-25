@@ -8,5 +8,9 @@ public interface List<T> extends Iterable<T>{
 
     void remove(int index);
 
+    T lastNode();
+
+    T firstNode();
+
     int size();
 }
