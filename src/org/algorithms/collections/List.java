@@ -13,4 +13,6 @@ public interface List<T> extends Iterable<T>{
     T firstNode();
 
     int size();
+
+    boolean isEmpty();
 }

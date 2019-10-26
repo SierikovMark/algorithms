@@ -76,6 +76,11 @@ public class ArrayList<T> implements List<T> {
     }
 
     @Override
+    public boolean isEmpty() {
+        return size > 0;
+    }
+
+    @Override
     public Iterator<T> iterator() {
         return new Iterator<T>() {
 

@@ -5,18 +5,47 @@ public class Main {
     public static void main(String[] args) {
 //        testList(new ArrayList<>());
 //        testList(new LinkedList<>());
-        List<String> strings = new LinkedList<>();
-        strings.add("1");
-        strings.add("2");
-        strings.add("3");
-        for (String string : strings) {
-            System.out.println(string);
+//        List<String> strings = new LinkedList<>();
+//        strings.add("1");
+//        strings.add("2");
+//        strings.add("3");
+//        for (String string : strings) {
+//            System.out.println(string);
+//        }
+//        strings.remove(0);
+//
+//        System.out.println(strings.firstNode());
+//        System.out.println(strings.lastNode());
+
+        Stack<String> stack = new LinkedListStack<>();
+        testStack(stack);
+
+    }
+
+    private static void testStack(Stack<String> stack) {
+        stack.push("1");
+        stack.push("2");
+//        stack.push("3");
+
+//        System.out.println(stack.peek());
+        printSize(stack);
+        System.out.println(stack.pop());
+        printSize(stack);
+        System.out.println(stack.pop());
+        printSize(stack);
+        System.out.println(stack.pop());
+        printSize(stack);
+        System.out.println(stack.pop());
+        printSize(stack);
+//
+        for (String s : stack) {
+            System.out.println(s);
         }
-        strings.remove(0);
+    }
 
-        System.out.println(strings.firstNode());
-        System.out.println(strings.lastNode());
-
+    private static void printSize(Stack<String> stack) {
+        System.out.println("size = " + stack.size());
+        System.out.println("is empty = " + stack.isEmpty());
     }
 
     private static void testList(List<String> list) {
