@@ -23,7 +23,7 @@ public class Main {
 //        Stack<String> stack = new LinkedListStack<>();
 //        testStack(stack);
 
-        testQueue(new ArrayQueue<>());
+        testQueue(new LinkedListQueue<>());
     }
 
     private static void testQueue(Queue<String> strings) {
