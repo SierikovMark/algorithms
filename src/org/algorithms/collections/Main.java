@@ -1,5 +1,8 @@
 package org.algorithms.collections;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -17,9 +20,39 @@ public class Main {
 //        System.out.println(strings.firstNode());
 //        System.out.println(strings.lastNode());
 
-        Stack<String> stack = new LinkedListStack<>();
-        testStack(stack);
+//        Stack<String> stack = new LinkedListStack<>();
+//        testStack(stack);
 
+        testQueue(new ArrayQueue<>());
+    }
+
+    private static void testQueue(Queue<String> strings) {
+        strings.offer("1");
+        strings.offer("2");
+        strings.offer("3");
+
+        System.out.println("size = " + strings.size());
+        System.out.println(strings.peek());
+        System.out.println(strings.pop());
+        System.out.println(strings.peek());
+        System.out.println(strings.pop());
+        System.out.println(strings.peek());
+        System.out.println(strings.pop());
+        System.out.println(strings.peek());
+        System.out.println(strings.pop());
+        System.out.println(strings.peek());
+        System.out.println(strings.isEmpty());
+
+        System.out.println("size = " + strings.size());
+        strings.offer("10");
+        strings.offer("20");
+        strings.offer("30");
+
+        System.out.println(strings.peek());
+        System.out.println(strings.pop());
+
+        System.out.println(strings.isEmpty());
+        System.out.println("size = " + strings.size());
     }
 
     private static void testStack(Stack<String> stack) {
@@ -41,6 +74,16 @@ public class Main {
         for (String s : stack) {
             System.out.println(s);
         }
+
+        System.out.println("---------------------");
+
+        Deque<String> strings = new ArrayDeque<>();
+        strings.offer("1");
+        strings.offer("2");
+        strings.offer("3");
+        strings.push("10");
+
+        System.out.println(strings.peek());
     }
 
     private static void printSize(Stack<String> stack) {
