@@ -1,29 +1,70 @@
 package org.algorithms.collections;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 public class Main {
 
     public static void main(String[] args) {
 //        testList(new ArrayList<>());
 //        testList(new LinkedList<>());
-//        List<String> strings = new LinkedList<>();
-//        strings.add("1");
-//        strings.add("2");
-//        strings.add("3");
-//        for (String string : strings) {
-//            System.out.println(string);
-//        }
-//        strings.remove(0);
-//
-//        System.out.println(strings.firstNode());
-//        System.out.println(strings.lastNode());
-
-//        Stack<String> stack = new LinkedListStack<>();
 //        testStack(stack);
+//        testQueue(new LinkedListQueue<>());
 
-        testQueue(new LinkedListQueue<>());
+        Deque<String> strings = new ArrayDeque<>();
+//        testQueueBasedOnDeque(strings);
+//        testStackBasedOnDeque(strings);
+//        testDeque(strings);
+    }
+
+    private static void testDeque(Deque<String> strings) {
+        strings.offer("1");
+        strings.push("2");
+        System.out.println("size = " + strings.size());
+        System.out.println(strings.isEmpty());
+        System.out.println(strings.peek());
+        System.out.println("first = " + strings.peekFirst());
+        System.out.println("last = " + strings.peekLast());
+        System.out.println(strings.pop());
+        System.out.println(strings.pop());
+        System.out.println(strings.pop());
+        System.out.println("size = " + strings.size());
+        System.out.println(strings.isEmpty());
+    }
+
+    private static void testStackBasedOnDeque(Deque<String> strings) {
+        strings.push("1");
+        strings.push("2");
+        strings.push("3");
+        System.out.println("size = " + strings.size());
+        System.out.println(strings.isEmpty());
+        System.out.println(strings.peek());
+        System.out.println("first = " + strings.peekFirst());
+        System.out.println("last = " + strings.peekLast());
+        System.out.println(strings.pop());
+        strings.push("4");
+        System.out.println(strings.pop());
+        System.out.println(strings.pop());
+        System.out.println(strings.pop());
+        System.out.println(strings.pop());
+        System.out.println("size = " + strings.size());
+        System.out.println(strings.isEmpty());
+    }
+
+    private static void testQueueBasedOnDeque(Deque<String> strings) {
+        strings.offer("1");
+        strings.offer("2");
+        strings.offer("3");
+        System.out.println("size = " + strings.size());
+        System.out.println(strings.isEmpty());
+        System.out.println(strings.peek());
+        System.out.println("first = " + strings.peekFirst());
+        System.out.println("last = " + strings.peekLast());
+        System.out.println(strings.poll());
+        strings.offer("4");
+        System.out.println(strings.poll());
+        System.out.println(strings.poll());
+        System.out.println(strings.poll());
+        System.out.println(strings.poll());
+        System.out.println("size = " + strings.size());
+        System.out.println(strings.isEmpty());
     }
 
     private static void testQueue(Queue<String> strings) {
@@ -33,13 +74,13 @@ public class Main {
 
         System.out.println("size = " + strings.size());
         System.out.println(strings.peek());
-        System.out.println(strings.pop());
+        System.out.println(strings.poll());
         System.out.println(strings.peek());
-        System.out.println(strings.pop());
+        System.out.println(strings.poll());
         System.out.println(strings.peek());
-        System.out.println(strings.pop());
+        System.out.println(strings.poll());
         System.out.println(strings.peek());
-        System.out.println(strings.pop());
+        System.out.println(strings.poll());
         System.out.println(strings.peek());
         System.out.println(strings.isEmpty());
 
@@ -49,7 +90,7 @@ public class Main {
         strings.offer("30");
 
         System.out.println(strings.peek());
-        System.out.println(strings.pop());
+        System.out.println(strings.poll());
 
         System.out.println(strings.isEmpty());
         System.out.println("size = " + strings.size());

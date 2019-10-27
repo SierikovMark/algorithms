@@ -34,7 +34,7 @@ public class LinkedListQueue<T> implements Queue<T> {
     }
 
     @Override
-    public T pop() {
+    public T poll() {
         if (firstNode == null) return null;
         T element = lastNode.element;
         lastNode.element = null;

@@ -30,7 +30,7 @@ public class ArrayQueue<T> implements Queue<T> {
     }
 
     @Override
-    public T pop() {
+    public T poll() {
         if (head == tail) return null;
         T element = queue[head];
         queue[head++] = null;
