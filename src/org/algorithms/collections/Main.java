@@ -8,10 +8,11 @@ public class Main {
 //        testStack(stack);
 //        testQueue(new LinkedListQueue<>());
 
-        Deque<String> strings = new ArrayDeque<>();
+//        Deque<String> strings = new LinkedListDeque<>();
 //        testQueueBasedOnDeque(strings);
 //        testStackBasedOnDeque(strings);
 //        testDeque(strings);
+
     }
 
     private static void testDeque(Deque<String> strings) {
