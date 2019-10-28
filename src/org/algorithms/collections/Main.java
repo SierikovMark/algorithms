@@ -1,5 +1,7 @@
 package org.algorithms.collections;
 
+import java.util.Comparator;
+
 public class Main {
 
 
@@ -24,6 +26,35 @@ public class Main {
 //        testStackBasedOnDeque(strings);
 //        testDeque(strings);
 //
+//        testBinaryTree();
+
+        Heap<Integer> integers = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2.compareTo(o1);
+            }
+        });
+
+        integers.offer(12);
+        integers.offer(15);
+        integers.offer(11);
+        integers.offer(100);
+        integers.offer(21);
+
+        for (Integer integer : integers) {
+            System.out.println(integer);
+        }
+
+        System.out.println("-------------------------");
+        System.out.println(integers.poll());
+        System.out.println("-------------------------");
+
+        for (Integer integer : integers) {
+            System.out.println(integer);
+        }
+    }
+
+    private static void testBinaryTree() {
         Tree<Integer> strings = new BinaryTree<>();
         strings.add(10);
         strings.add(20);
