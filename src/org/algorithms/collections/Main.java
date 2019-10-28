@@ -2,6 +2,17 @@ package org.algorithms.collections;
 
 public class Main {
 
+
+    static class Node<E> {
+        E element;
+        Node<E> leftNode;
+        Node<E> rightNode;
+
+        public Node(E element) {
+            this.element = element;
+        }
+    }
+
     public static void main(String[] args) {
 //        testList(new ArrayList<>());
 //        testList(new LinkedList<>());
@@ -12,8 +23,54 @@ public class Main {
 //        testQueueBasedOnDeque(strings);
 //        testStackBasedOnDeque(strings);
 //        testDeque(strings);
+//
+        Tree<Integer> strings = new BinaryTree<>();
+        strings.add(10);
+        strings.add(20);
+        strings.add(30);
+        strings.add(5);
+        strings.add(40);
+        strings.add(11);
+        strings.add(50);
 
+
+        for (Integer string : strings) {
+            System.out.println(string);
+        }
+
+        System.out.println(strings.search(100));
+        System.out.println(strings.search(11));
+
+
+        System.out.println("--------------------------------------");
+        System.out.println(strings.search(20));
+        strings.remove(20);
+        System.out.println(strings.search(20));
+
+        for (Integer string : strings) {
+            System.out.println(string);
+        }
     }
+
+    private static void printNode(Node<String> node) {
+        if (node == null) return;
+        System.out.println(node.element);
+        printNode(node.leftNode);
+        printNode(node.rightNode);
+    }
+
+    private static void printNode1(Node<String> node) {
+        Deque<Node<String>> strings = new ArrayDeque<>();
+        strings.offer(node);
+        while (!strings.isEmpty()) {
+            Node<String> pop = strings.pop();
+            System.out.println(pop.element);
+            if (pop.leftNode != null) strings.offer(pop.leftNode);
+            if (pop.rightNode != null) strings.offer(pop.rightNode);
+        }
+    }
+
+
 
     private static void testDeque(Deque<String> strings) {
         strings.offer("1");
