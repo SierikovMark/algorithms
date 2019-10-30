@@ -28,12 +28,71 @@ public class Main {
 //
 //        testBinaryTree();
 
-        Heap<Integer> integers = new PriorityQueue<>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2.compareTo(o1);
-            }
-        });
+//        testHeap();
+
+        Graph<Integer> graph = new GraphStructure<>();
+
+        System.out.println("size = " + graph.size());
+        System.out.println("empty = " + graph.isEmpty());
+
+        graph.add(1);
+        graph.add(2);
+        graph.add(3);
+        graph.add(4);
+        graph.add(5);
+        graph.add(6);
+
+        System.out.println("size = " + graph.size());
+        System.out.println("empty = " + graph.isEmpty());
+
+        graph.connect(1, 2);
+        graph.connect(1, 3);
+        graph.connect(1, 4);
+
+        graph.connect(2, 3);
+
+        graph.connect(2, 5);
+        graph.connect(3, 5);
+        graph.connect(4, 5);
+
+        graph.connect(5, 6);
+
+        System.out.println(graph.isConnected(5,6));
+        System.out.println(graph.isConnected(1,5));
+        System.out.println(graph.isConnected(1,6));
+        System.out.println(graph.isConnected(3,1));
+
+        System.out.println(graph.search(10));
+        System.out.println(graph.search(1));
+
+        java.util.List<Integer> neighbor = graph.getNeighbor(1);
+        for (Integer integer : neighbor) {
+            System.out.print(integer + " ");
+        }
+        System.out.println();
+        for (Integer integer : graph) {
+            System.out.print(integer + " ");
+        }
+        System.out.println();
+
+        System.out.println(graph.isConnected(5, 6));
+        graph.disconnect(6, 5);
+        System.out.println(graph.isConnected(5, 6));
+
+        System.out.println();
+
+        graph.remove(2);
+
+        System.out.println(graph.isConnected(1, 2));
+        System.out.println(graph.search(2));
+
+
+
+
+    }
+
+    private static void testHeap() {
+        Heap<Integer> integers = new PriorityQueue<>(Integer::compareTo);
 
         integers.offer(12);
         integers.offer(15);
