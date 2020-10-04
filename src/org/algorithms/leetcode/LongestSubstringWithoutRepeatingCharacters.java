@@ -1,11 +1,32 @@
 package org.algorithms.leetcode;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
 public class LongestSubstringWithoutRepeatingCharacters {
 
     public static int lengthOfLongestSubstring(String s) {
+        if (s.length() < 2) return s.length();
+
+        int lengthOfLongestSubstring = 0;
+        int windowStart = 0;
+
+        HashMap<Character, Integer> hash = new HashMap<>();
+
+        for (int windowEnd = 0; windowEnd < s.length(); windowEnd++) {
+            char c = s.charAt(windowEnd);
+            if (hash.containsKey(c)) {
+                windowStart = Math.max(hash.get(c) + 1, windowStart);
+            }
+            hash.put(c, windowEnd);
+            lengthOfLongestSubstring = Math.max(lengthOfLongestSubstring, windowEnd - windowStart + 1);
+        }
+
+        return lengthOfLongestSubstring;
+    }
+
+    public static int lengthOfLongestSubstring2N(String s) {
         if (s.length() < 2) return s.length();
 
         int lengthOfLongestSubstring = 0;
