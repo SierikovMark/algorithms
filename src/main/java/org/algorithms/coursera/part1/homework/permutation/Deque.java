@@ -1,3 +1,5 @@
+package org.algorithms.coursera.part1.homework.permutation;
+
 import java.util.NoSuchElementException;
 import java.util.Iterator;
 

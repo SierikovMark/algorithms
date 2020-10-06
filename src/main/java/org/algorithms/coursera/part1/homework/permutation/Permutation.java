@@ -1,3 +1,5 @@
+package org.algorithms.coursera.part1.homework.permutation;
+
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
