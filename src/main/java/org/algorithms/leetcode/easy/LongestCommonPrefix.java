@@ -4,26 +4,16 @@ public class LongestCommonPrefix {
 
     public static String longestCommonPrefix(String[] strs) {
         if (strs == null || strs.length == 0) return "";
-        if (strs.length == 1) return strs[0];
 
-        int length = Integer.MAX_VALUE;
-        for (String str : strs) {
-            if (str.length() < length) {
-                length = str.length();
-            }
-        }
-
-        if (length == 0) return "";
-
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < strs[0].length(); i++) {
             char current = strs[0].charAt(i);
             for (int j = 1; j < strs.length; j++) {
-                if (strs[j].charAt(i) != current) {
+                if (i == strs[j].length() || strs[j].charAt(i) != current) {
                     return i == 0 ? "" : strs[0].substring(0, i);
                 }
             }
         }
-        return strs[0].substring(0, length);
+        return strs[0];
     }
 
     public static void main(String[] args) {
