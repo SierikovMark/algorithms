@@ -15,21 +15,20 @@ public class LongestCommonPrefix {
 
         if (length == 0) return "";
 
-        int lastIndex = 0;
         for (int i = 0; i < length; i++) {
             char current = strs[0].charAt(i);
             for (int j = 1; j < strs.length; j++) {
                 if (strs[j].charAt(i) != current) {
-                    return i == 0 ? "" : strs[0].substring(0, lastIndex + 1);
+                    return i == 0 ? "" : strs[0].substring(0, i);
                 }
             }
-            lastIndex = i;
         }
-        return strs[0].substring(0, lastIndex + 1);
+        return strs[0].substring(0, length);
     }
 
     public static void main(String[] args) {
         System.out.println(longestCommonPrefix(new String[] {"aaa", "aaab", "aa"}));
         System.out.println(longestCommonPrefix(new String[] {"flower","flow","flight"}));
+        System.out.println(longestCommonPrefix(new String[] {"aaa","aaa","aaa"}));
     }
 }
