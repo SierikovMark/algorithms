@@ -8,6 +8,21 @@ public class RemoveElementFromArray {
         if (nums == null) return -1;
         if (nums.length == 0) return 0;
 
+        int i = 0, n = nums.length;
+        while (i < n) {
+            if (nums[i] == val) {
+                nums[i] = nums[--n];
+            } else {
+                i++;
+            }
+        }
+        return i;
+    }
+
+    public static int removeElement2(int[] nums, int val) {
+        if (nums == null) return -1;
+        if (nums.length == 0) return 0;
+
         int j = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != val) {
