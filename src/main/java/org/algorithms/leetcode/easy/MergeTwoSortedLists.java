@@ -1,5 +1,7 @@
 package org.algorithms.leetcode.easy;
 
+import org.algorithms.leetcode.common.ListNode;
+
 public class MergeTwoSortedLists {
 
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
@@ -57,26 +59,6 @@ public class MergeTwoSortedLists {
         ListNode first = new ListNode(1, new ListNode(2, new ListNode(4)));
         ListNode second = new ListNode(1, new ListNode(3, new ListNode(4)));
         ListNode listNode = mergeTwoLists(first, second);
-        while (listNode != null) {
-            System.out.print(listNode.val + " ");
-            listNode = listNode.next;
-        }
-    }
-}
-
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
+        System.out.println(listNode.toString());
     }
 }

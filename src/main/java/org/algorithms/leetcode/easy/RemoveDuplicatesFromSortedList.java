@@ -1,5 +1,7 @@
 package org.algorithms.leetcode.easy;
 
+import org.algorithms.leetcode.common.ListNode;
+
 public class RemoveDuplicatesFromSortedList {
 
     public static ListNode deleteDuplicatesWithoutAdditionalVariable(ListNode head) {
@@ -36,19 +38,8 @@ public class RemoveDuplicatesFromSortedList {
         listNode2 = deleteDuplicates(listNode2);
         listNode3 = deleteDuplicates(listNode3);
 
-        printListNode(listNode1);
-        printListNode(listNode2);
-        printListNode(listNode3);
-    }
-
-    private static void printListNode(ListNode listNode) {
-        while (listNode != null) {
-            System.out.print(listNode.val);
-            if (listNode.next != null) {
-                System.out.print(" ");
-            }
-            listNode = listNode.next;
-        }
-        System.out.println();
+        System.out.println(listNode1.toString());
+        System.out.println(listNode2.toString());
+        System.out.println(listNode3.toString());
     }
 }

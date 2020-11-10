@@ -1,12 +1,6 @@
 package org.algorithms.leetcode;
 
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode() {}
-    ListNode(int val) { this.val = val; }
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-}
+import org.algorithms.leetcode.common.ListNode;
 
 public class AddTwoNumbers {
 
@@ -14,16 +8,16 @@ public class AddTwoNumbers {
         if (l1 == null && l2 == null) {
             return new ListNode();
         }
-        if(l1 == null) {
+        if (l1 == null) {
             return l2;
-        } else if(l2 == null) {
+        } else if (l2 == null) {
             return l1;
         }
 
         ListNode result = null;
         ListNode firstNode = null;
         boolean additional = false;
-        while(l1 != null || l2 != null) {
+        while (l1 != null || l2 != null) {
             int firstValue = l1 == null ? 0 : l1.val;
             int secondValue = l2 == null ? 0 : l2.val;
 
@@ -63,20 +57,13 @@ public class AddTwoNumbers {
         ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
 
         ListNode listNode = addTwoNumbers(l1, l2);
-        printList(listNode);
+        System.out.println(listNode.toString());
 
         System.out.println();
         l1 = new ListNode(1, new ListNode(8));
         l2 = new ListNode(0);
 
         listNode = addTwoNumbers(l1, l2);
-        printList(listNode);
-    }
-
-    private static void printList(ListNode listNode) {
-        while (listNode != null) {
-            System.out.print(listNode.val + " ");
-            listNode = listNode.next;
-        }
+        System.out.println(listNode.toString());
     }
 }
