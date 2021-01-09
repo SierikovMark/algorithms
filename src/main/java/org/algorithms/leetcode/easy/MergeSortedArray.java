@@ -54,6 +54,6 @@ public class MergeSortedArray {
     public static void main(String[] args) {
         int[] nums1 = {1};
         merge(nums1, 1, new int[] {0}, 0);
-        Utils.printIntArray(nums1, nums1.length);
+        Utils.printIntArray(nums1);
     }
 }

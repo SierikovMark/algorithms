@@ -12,4 +12,8 @@ public class Utils {
         }
         System.out.println();
     }
+
+    public static void printIntArray(int[] arr) {
+        printIntArray(arr, arr.length);
+    }
 }
