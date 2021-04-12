@@ -1,6 +1,7 @@
 package org.algorithms.leetcode.easy;
 
 import org.algorithms.leetcode.common.Pair;
+import org.algorithms.leetcode.common.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -61,25 +62,5 @@ public class SameTree {
         TreeNode q = new TreeNode(1,  null, new TreeNode(2));
 
         System.out.println(isSameTree(p, q));
-    }
-}
-
-
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode() {
-    }
-
-    TreeNode(int val) {
-        this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
     }
 }
