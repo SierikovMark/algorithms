@@ -50,7 +50,6 @@ public class ConvertSortedArrayToBinarySearchTree {
         return rootNode;
     }
 
-
     public static TreeNode sortedArrayToBSTRecursive(int[] nums) {
         return buildSubTree(nums, 0, nums.length - 1);
     }
@@ -76,6 +75,5 @@ public class ConvertSortedArrayToBinarySearchTree {
 
         TreeNode treeNode = sortedArrayToBSTRecursive(new int[] {-10,-3,0,5,9});
         printBFTreeNode(treeNode);
-
     }
 }
