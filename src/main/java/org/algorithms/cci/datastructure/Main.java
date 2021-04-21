@@ -20,6 +20,8 @@ public class Main {
         System.out.println(linkedList.indexOf("aaa"));
         linkedList.add("aaa");
         linkedList.add("aaa");
+        linkedList.add("aaa");
+        System.out.println(linkedList.remove("aaa"));
         System.out.println(linkedList.removeAll("aaa"));
         System.out.println(linkedList.getSize());
         for (String s : linkedList) {
