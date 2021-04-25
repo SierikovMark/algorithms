@@ -8,6 +8,16 @@ import java.util.Set;
 
 public class SingleNumber {
 
+    // Based on bit manipulation a ^ a = 0;
+    // a ^ a ^ b = 0 ^ b -> b
+    public int singleNumber4(int[] nums) {
+        int result = 0;
+        for (int num : nums) {
+            result ^= num;
+        }
+        return result;
+    }
+
     // Based on math 2 * (a + b) - (a + a + b) = b
      public int singleNumber3(int[] nums) {
          Set<Integer> setOfNums = new HashSet();
