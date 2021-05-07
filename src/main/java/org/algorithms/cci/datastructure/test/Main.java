@@ -1,4 +1,6 @@
-package org.algorithms.cci.datastructure;
+package org.algorithms.cci.datastructure.test;
+
+import org.algorithms.cci.datastructure.LinkedList;
 
 public class Main {
 

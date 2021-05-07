@@ -1,5 +1,6 @@
-package org.algorithms.cci.datastructure;
+package org.algorithms.cci.datastructure.test;
 
+import org.algorithms.cci.datastructure.Map;
 import org.algorithms.cci.datastructure.impl.HashMap;
 
 import java.util.Set;

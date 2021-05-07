@@ -47,7 +47,7 @@ public class HashMap<K, V> implements Map<K, V> {
 
     @SuppressWarnings({"unchecked"})
     public HashMap() {
-        table = (Entry<K,V>[])new Entry[INITIAL_CAPACITY];
+        table = (Entry<K, V>[]) new Entry[INITIAL_CAPACITY];
     }
 
     @Override
@@ -101,7 +101,7 @@ public class HashMap<K, V> implements Map<K, V> {
     @SuppressWarnings("unchecked")
     private void copyHashMap(int newSize) {
         Entry<K, V>[] table = this.table;
-        this.table =  (Entry<K,V>[])new Entry[newSize];
+        this.table = (Entry<K, V>[]) new Entry[newSize];
         for (Entry<K, V> entry : table) {
             if (entry != null) {
                 int bucket = getBucket(entry.getHash());
