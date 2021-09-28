@@ -1,4 +1,4 @@
-package org.algorithms.hackerrank.ipk.medium;
+package org.algorithms.hackerrank.ipk.hashmapandsictionaries.medium;
 
 import java.util.HashMap;
 import java.util.Map;
