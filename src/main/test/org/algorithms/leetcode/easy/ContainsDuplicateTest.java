@@ -28,4 +28,11 @@ class ContainsDuplicateTest {
         assertEquals(expected, actual);
     }
 
+    @MethodSource("testData")
+    @ParameterizedTest
+    void testV2(int[] nums, boolean expected) {
+        boolean actual = containsDuplicate.containsDuplicateV2(nums);
+        assertEquals(expected, actual);
+    }
+
 }
