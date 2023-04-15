@@ -11,10 +11,11 @@ public class ListNode {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(val);
-        while (next != null) {
+        ListNode tmp = next;
+        while (tmp != null) {
             stringBuilder.append(" ");
-            stringBuilder.append(next.val);
-            next = next.next;
+            stringBuilder.append(tmp.val);
+            tmp = tmp.next;
         }
         return stringBuilder.toString();
     }
