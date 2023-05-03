@@ -16,9 +16,10 @@ class CountStringsWithUniqueSymbolsTest {
     void test() {
         Map<String, Integer> expected = Map.of(
                 "ab", 2,
-                "ba", 1
+                "ba", 1,
+                "c", 1
         );
-        Map<String, Integer> count = counter.count(List.of("aba", "ab", "ba"));
+        Map<String, Integer> count = counter.count(List.of("aba", "ab", "ba", "cc"));
         assertEquals(expected, count);
     }
 }
