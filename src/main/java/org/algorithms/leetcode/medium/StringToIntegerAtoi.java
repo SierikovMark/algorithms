@@ -7,6 +7,7 @@ public class StringToIntegerAtoi {
 
     public static final int MAX_INT_DIVIDED_BY_10 = Integer.MAX_VALUE / 10;
     public static final int REMINDER_OF_MAX_INT_AND_10 = Integer.MAX_VALUE % 10;
+
     private final Set<Character> allowedNumbers = new HashSet<>();
 
     {
@@ -107,13 +108,18 @@ public class StringToIntegerAtoi {
             index++;
         }
 
-        // 2. Determine sign
+        // 2. if nothing to parse return 0
+        if (index >= chars.length) {
+            return 0;
+        }
+
+        // 3. Determine sign
         if (chars[index] == '+' || chars[index] == '-') {
             sign = chars[index] == '-' ? -1 : 1;
             index++;
         }
 
-        // 3. Parse number
+        // 4. Parse number
         while (index < chars.length) {
             int digit = chars[index] - '0';
             if (digit < 0 || digit > 9) {

@@ -24,6 +24,7 @@ class StringToIntegerAtoiTest {
                 .add(Arguments.of(-42, "-0042"))
                 .add(Arguments.of(-1, "-1"))
                 .add(Arguments.of(0, ""))
+                .add(Arguments.of(0, " "))
                 .add(Arguments.of(0, "-"))
                 .add(Arguments.of(0, "+"))
                 .add(Arguments.of(0, "+"))
