@@ -88,30 +88,26 @@ public class DivideTwoIntegers {
 
         boolean positive = (dividend > 0) == (divisor > 0);
 
-        if (dividend == Integer.MIN_VALUE) {
-            dividend = Integer.MAX_VALUE;
-        }
+        long dd = dividend < 0 ? 0L - dividend : dividend;
+        long dr = divisor < 0 ? 0L - divisor : divisor;
 
-        if (dividend < 0) {
-            dividend = -dividend;
-        }
-        if (divisor < 0) {
-            divisor = -divisor;
-        }
-
-        int result = 0;
-        for (int i = 30; i >= 0; i--) {
+        long result = 0;
+        for (int i = 31; i >= 0; i--) {
             result <<= 1;
-            int dividendCandidate = dividend >> i;
-            if (dividendCandidate < divisor) {
+            long dividendCandidate = dd >> i;
+            if (dividendCandidate < dr) {
                 continue;
             }
-            int reminder = dividend & ((1 << i) - 1);
-            dividend = ((dividendCandidate - divisor) << i) + reminder;
+            long reminder = dd & ((1L << i) - 1L);
+            dd = ((dividendCandidate - dr) << i) + reminder;
             result++;
         }
 
-        return positive ? result : -result;
+        if (result > Integer.MAX_VALUE && positive) {
+            return Integer.MAX_VALUE;
+        }
+
+        return (int) (positive ? result : -result);
     }
 
 }
