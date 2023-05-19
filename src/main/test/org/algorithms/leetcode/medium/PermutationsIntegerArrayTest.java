@@ -24,24 +24,14 @@ class PermutationsIntegerArrayTest {
     @ParameterizedTest
     @MethodSource("testData")
     void test(List<List<Integer>> expected, int[] input) {
-        long start = System.currentTimeMillis();
-        List<List<Integer>> result = null;
-        for (int i = 0; i < 1000; i++) {
-            result = permutations.permute(input);
-        }
-        System.out.println("V1 = " + (System.currentTimeMillis() - start));
+        List<List<Integer>> result = permutations.permute(input);
         assertEquals(expected, result);
     }
 
     @ParameterizedTest
     @MethodSource("testData")
     void testV2(List<List<Integer>> expected, int[] input) {
-        long start = System.currentTimeMillis();
-        List<List<Integer>> result = null;
-        for (int i = 0; i < 1000; i++) {
-            result = permutations.permuteV2(input);
-        }
-        System.out.println("V2 = " + (System.currentTimeMillis() - start));
+        List<List<Integer>> result = permutations.permuteV2(input);
         assertEquals(expected, result);
     }
 
