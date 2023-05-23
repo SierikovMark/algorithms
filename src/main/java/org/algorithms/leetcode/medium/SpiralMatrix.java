@@ -93,20 +93,24 @@ public class SpiralMatrix {
         int columnEnd = matrix[0].length - 1; // 2
 
         while(columnStart <= columnEnd && rowStart <= rowEnd) {
+            // Go right
             for (int i = columnStart; i <= columnEnd; i++) {
                 result.add(matrix[rowStart][i]); // [1, 2, 3, 4] [6, 7]
             }
             rowStart++; // 2
+            // Go down
             for (int i = rowStart; i <= rowEnd; i++) {
                 result.add(matrix[i][columnEnd]); // [8, 12]
             }
             columnEnd--; // 1
+            // Go left only if we haven't passed this row
             if (rowStart <= rowEnd) {
                 for (int i = columnEnd; i >= columnStart; i--) {
                     result.add(matrix[rowEnd][i]); // [11, 10, 9]
                 }
             }
             rowEnd--; // 0
+            // Go up only if we haven't passed this column
             if (columnStart <= columnEnd) {
                 for (int i = rowEnd; i >= rowStart; i--) {
                     result.add(matrix[i][columnStart]); // [5]
