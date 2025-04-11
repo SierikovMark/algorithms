@@ -19,6 +19,14 @@ public class ArrayList<T> implements List<T> {
         list[size++] = element;
     }
 
+    @Override
+    public T get(int index) {
+        if (index >= size) {
+            throw new ArrayIndexOutOfBoundsException(index);
+        }
+        return list[index];
+    }
+
     private void ensureCapacity() {
         if (size + 1 > list.length) {
             list = Arrays.copyOf(list, list.length * 2);
@@ -82,9 +90,9 @@ public class ArrayList<T> implements List<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new Iterator<T>() {
+        return new Iterator<>() {
 
-            T[] tmp  = list;
+            final T[] tmp = list;
             int index = 0;
 
             @Override

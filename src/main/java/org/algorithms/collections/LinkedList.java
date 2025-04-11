@@ -1,10 +1,11 @@
 package org.algorithms.collections;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class LinkedList<T> implements List<T> {
 
-    private class Node<E> {
+    private static class Node<E> {
         private E element;
         private Node<E> next;
         private Node<E> previous;
@@ -35,6 +36,23 @@ public class LinkedList<T> implements List<T> {
         node = newNode;
         lastNode = node;
         size++;
+    }
+
+    @Override
+    public T get(int index) {
+        if (index >= size) {
+            throw new IndexOutOfBoundsException(index);
+        }
+        int i = 0;
+        Node<T> currentElement = firstNode;
+        while (i <= size) {
+            if (i == index) {
+                return currentElement.element;
+            }
+            currentElement = currentElement.next;
+            i++;
+        }
+        throw new NoSuchElementException(String.format("No element at index %s", index));
     }
 
     @Override
@@ -114,8 +132,9 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new Iterator<T>() {
+        return new Iterator<>() {
             Node<T> tmp = firstNode;
+
             @Override
             public boolean hasNext() {
                 return tmp != null;
